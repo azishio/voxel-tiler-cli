@@ -14,7 +14,7 @@ use voxel_tiler_core::default_params::{Fit, Tile};
 
 use crate::file_path_completer::{FilePathCompleter, to_plain_text};
 use crate::las_info::LasInfo;
-use crate::validators::{is_exist, is_jpr_origin, is_las_or_laz};
+use crate::validators::{is_exist, is_jpr_origin, is_las_or_laz, zoom_level_selection_validator};
 
 mod file_path_completer;
 mod validators;
@@ -55,6 +55,8 @@ fn main() -> anyhow::Result<()> {
 
 
     let zoom_lv = MultiSelect::new("Select zoom levels", info.resolution_list(origin))
+        .with_starting_cursor(17)
+        .with_validator(zoom_level_selection_validator)
         .prompt()?;
 
     let output_path = to_plain_text(
