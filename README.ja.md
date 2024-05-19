@@ -13,6 +13,29 @@ las若しくはlaz形式の点群データをply形式のボクセル上のメ�
 cargo install voxel-tiler-cli
 ```
 
+> [!NOTE]
+> `cargo install` によってインストールされた実行ファイルは、通常、Unix系システムでは `$HOME/.cargo/bin`
+> 、Windowsでは `%USERPROFILE%\.cargo\bin` に配置されます。
+> 実行する際には、フルパスを指定するか、Cargoのbinディレクトリを`PATH`環境変数に追加してください。
+>
+> ```shell
+> # Unix系システムの場合
+> ~/.cargo/bin/voxel-tiler-cli
+> 
+> # または
+> export PATH=$PATH:$HOME/.cargo/bin
+> voxel-tiler-cli
+> 
+> # Windowsの場合
+> %USERPROFILE%\.cargo\bin\voxel-tiler-cli
+> 
+> # または
+> set PATH=%PATH%;%USERPROFILE%\.cargo\bin
+> voxel-tiler-cli
+> ```
+>
+> 参考: [Installing Binaries with cargo install](https://doc.rust-lang.org/book/ch14-04-installing-binaries.html)
+
 もしくは、リポジトリをクローンしてビルドしてください。
 
 ```sh

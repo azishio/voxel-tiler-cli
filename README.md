@@ -13,6 +13,30 @@ Currently, installation is only supported via Cargo.
 cargo install voxel-tiler-cli
 ```
 
+> [!NOTE]
+> The executable installed by `cargo install` will be placed in the directory specified by Cargo's bin directory, which
+> is typically `$HOME/.cargo/bin` on Unix-like systems and `%USERPROFILE%\.cargo\bin` on Windows.
+> To run the executable, you can either specify the full path or add Cargo's bin directory to your `PATH` environment
+> variable.
+>
+> ```shell
+> # On Unix-like systems
+> ~/.cargo/bin/voxel-tiler-cli
+> 
+> # or
+> export PATH=$PATH:$HOME/.cargo/bin
+> voxel-tiler-cli
+> 
+> # On Windows
+> %USERPROFILE%\.cargo\bin\voxel-tiler-cli
+> 
+> # or
+> set PATH=%PATH%;%USERPROFILE%\.cargo\bin
+> voxel-tiler-cli
+> ```
+>
+> reference: [Installing Binaries with cargo install](https://doc.rust-lang.org/book/ch14-04-installing-binaries.html)
+
 Alternatively, you can clone the repository and build it manually.
 
 ```sh
