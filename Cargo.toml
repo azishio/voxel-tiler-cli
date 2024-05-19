@@ -1,7 +1,17 @@
 [package]
 name = "voxel-tiler-cli"
 version = "0.1.0"
+authors = ["azishio"]
 edition = "2021"
+description = "A CLI tool to convert point clouds into voxel mesh data in Ply format."
+
+readme = "README.md"
+
+homepage = "https://crates.io/crates/voxel-tiler-cli"
+repository = "https://github.com/azishio/voxel-tiler-cli"
+
+keywords = ["voxel", "point-cloud", "ply", "las", "laz"]
+categories = ["science::geo", "command-line-utilities"]
 
 [dependencies]
 anyhow = "1.0.86"
