@@ -7,6 +7,8 @@ description = "A CLI tool to convert point clouds into voxel mesh data in Ply fo
 
 readme = "README.md"
 
+license = "MIT OR Apache-2.0"
+
 homepage = "https://crates.io/crates/voxel-tiler-cli"
 repository = "https://github.com/azishio/voxel-tiler-cli"
 
