@@ -4,3 +4,13 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+anyhow = "1.0.86"
+bunt = "0.2.8"
+clap = { version = "4.5.4", features = ["derive"] }
+coordinate-transformer = "1.7.0"
+inquire = "0.7.5"
+voxel-tiler-core = { version = "0.2", features = ["default", "las", "laz"] }
+regex = "1.10.4"
+las = { version = "0.8.7", features = ["laz"] }
+laz = "0.9.1"
+tabled = "0.15.0"
