@@ -92,6 +92,7 @@ fn main() -> anyhow::Result<()> {
         return Ok(());
     }
 
+    create_dir_all(&output_path).expect("Failed to create output directory");
 
     let input_file_name = Path::new(&input_path).file_name().unwrap().to_str().unwrap();
     zoom_lv.into_iter().for_each(|z| {
