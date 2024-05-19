@@ -147,22 +147,17 @@ impl Autocomplete for FilePathCompleter {
             // 一致している部分
             let matched_name = path.full_path.replace(&diff, "");
 
-            let display = match path.path_type {
+            match path.path_type {
                 PathType::File => {
-                    format!("\x1b[37m{}\x1b[32m{}\x1b[39m", matched_name, diff)
-                }
-                PathType::Directory => {
-                    format!("\x1b[37m{}\x1b[39m{}\x1b[39m", matched_name, diff)
+                    format!("{}\x1b[32m{}\x1b[39m", matched_name, diff)
                 }
                 PathType::Symlink => {
-                    format!("\x1b[37m{}\x1b[36m{}\x1b[39m", matched_name, diff)
+                    format!("{}\x1b[36m{}\x1b[39m", matched_name, diff)
                 }
-                PathType::Other => {
-                    format!("\x1b[37m{}\x1b[39m{}\x1b[39m", matched_name, diff)
+                _ => {
+                    format!("{}{}", matched_name, diff)
                 }
-            };
-
-            display
+            }
         }).collect::<Vec<_>>();
         path_list.sort();
         Ok(path_list)
