@@ -1,5 +1,5 @@
 use std::env::current_dir;
-use std::fs::File;
+use std::fs::{create_dir_all, File};
 use std::io::{BufReader, Write};
 use std::path::Path;
 
@@ -52,6 +52,7 @@ fn main() -> anyhow::Result<()> {
     println!("\n\nLas File Info\n");
     let info = LasInfo::from_path(&input_path, swap);
     info.print_info();
+    println!("\n");
 
 
     let zoom_lv = MultiSelect::new("Select zoom levels", info.resolution_list(origin))
@@ -81,7 +82,7 @@ fn main() -> anyhow::Result<()> {
       format!("Ply Format : {}", file_format),
       format!("Tiling     : {}", tiling),
     ];
-    println!("\n\nParams{}\n", table);
+    println!("\nParams\n\n{}\n", table);
 
     if !Confirm::new("Continue?")
         .with_default(false)
