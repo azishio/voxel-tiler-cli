@@ -29,14 +29,10 @@ pub fn is_exist(path: &str) -> Result<Validation, CustomUserError> {
 }
 
 pub fn is_jpr_origin(origin: &str) -> Result<Validation, CustomUserError> {
-    match origin.parse::<u8>() {
-        Ok(num) =>
-            if JprOrigin::One as u8 <= num && num <= JprOrigin::Nineteen as u8 {
-                Ok(Validation::Valid)
-            } else {
-                Ok(Validation::Invalid("The input value must be a one-byte number from 1 to 19.".to_string().into()))
-            },
-        Err(_) => Ok(Validation::Invalid(format!("\"{}\" is not an integer", origin).into())),
+    if origin.parse::<JprOrigin>().is_ok() {
+        Ok(Validation::Valid)
+    } else {
+        Ok(Validation::Invalid("The input value must be a one-byte number from 1 to 19.".into()))
     }
 }
 
