@@ -12,10 +12,9 @@ use crate::las_info::ZoomLevel;
 pub fn is_las_or_laz(path: &str) -> Result<Validation, CustomUserError> {
     let path = to_plain_text(path);
 
-    if Reader::from_path(&path).is_ok() {
-        Ok(Validation::Valid)
-    } else {
-        Ok(Validation::Invalid(format!("\"{}\" is not a LAS or LAZ file", path).into()))
+    match Reader::from_path(&path) {
+        Ok(_) => Ok(Validation::Valid),
+        Err(e) => Ok(Validation::Invalid(e.to_string().into())),
     }
 }
 
