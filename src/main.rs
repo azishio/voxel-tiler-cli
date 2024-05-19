@@ -6,7 +6,6 @@ use std::path::Path;
 use clap::Parser;
 use coordinate_transformer::JprOrigin;
 use inquire::{Confirm, MultiSelect, Select, Text};
-use las::Read;
 use regex::Regex;
 use tabled::col;
 use voxel_tiler_core::{PlyStructs, Voxelizer};
@@ -39,21 +38,20 @@ fn main() -> anyhow::Result<()> {
         .with_validator(is_las_or_laz)
         .prompt()?);
 
-    // 平面直角座標系の原点
-    let origin = Text::new("JPR Origin: ")
-        .with_validator(is_jpr_origin).prompt()?.parse::<JprOrigin>().unwrap();
-
     // XYを入れ替えるかどうか
     let swap = Confirm::new("Swap X and Y?")
         .with_default(false)
         .prompt()?;
 
     // lasファイルの情報を表示
-    println!("\n\nLas File Info\n");
+    println!("\nLas File Info\n");
     let info = LasInfo::from_path(&input_path, swap);
     info.print_info();
     println!("\n");
 
+    // 平面直角座標系の原点
+    let origin = Text::new("JPR Origin: ")
+        .with_validator(is_jpr_origin).prompt()?.parse::<JprOrigin>().unwrap();
 
     let zoom_lv = MultiSelect::new("Select zoom levels", info.resolution_list(origin))
         .with_starting_cursor(17)
@@ -61,7 +59,7 @@ fn main() -> anyhow::Result<()> {
         .prompt()?;
 
     let output_path = to_plain_text(
-        &Text::new("Output File Path: ")
+        &Text::new("Output Directory Path: ")
             .with_autocomplete(FilePathCompleter::new(Regex::new(r"^$").unwrap()))
             .with_initial_value(current_dir().unwrap().to_str().unwrap())
             .with_formatter(&to_plain_text)
