@@ -2,6 +2,8 @@
 
 # voxel-tiler-cli
 
+![voxel](https://github.com/azishio/voxel-tiler-core-rs/assets/127939746/2c1402c1-03a1-4c05-af64-daa3ea2976a0)
+
 las若しくはlaz形式の点群データをply形式のボクセル上のメッシュに変換します。
 これは[voxel-tiler-core](https://crates.io/crates/voxel-tiler-core)をCLIでラップしたものです。
 

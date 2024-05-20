@@ -2,6 +2,8 @@ English | [日本語](README.ja.md)
 
 # voxel-tiler-cli
 
+![voxel](https://github.com/azishio/voxel-tiler-core-rs/assets/127939746/2c1402c1-03a1-4c05-af64-daa3ea2976a0)
+
 Convert point cloud data in LAS or LAZ format to voxel-based meshes in PLY format. This tool
 wraps [voxel-tiler-core](https://crates.io/crates/voxel-tiler-core) with a CLI interface.
 
