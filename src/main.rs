@@ -20,7 +20,12 @@ mod validators;
 mod las_info;
 
 #[derive(Parser, Debug)]
-#[command(author, version, about)]
+#[command(version)]
+#[clap(verbatim_doc_comment)]
+/// For instructions on how to use the system, check the following
+///
+/// English: https://github.com/azishio/voxel-tiler-cli/blob/main/README.md
+/// 日本語: https://github.com/azishio/voxel-tiler-cli/blob/main/README.ja.md
 struct Args {}
 
 fn main() -> anyhow::Result<()> {
