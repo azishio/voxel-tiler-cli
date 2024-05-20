@@ -7,7 +7,10 @@ wraps [voxel-tiler-core](https://crates.io/crates/voxel-tiler-core) with a CLI i
 
 ## Installation
 
-Currently, installation is only supported via Cargo.
+Download the binary for your environment from the Release page and pass it through, or follow the steps below to install
+it.
+
+### Install from Crates.io
 
 ```sh
 cargo install voxel-tiler-cli
@@ -37,7 +40,7 @@ cargo install voxel-tiler-cli
 >
 > reference: [Installing Binaries with cargo install](https://doc.rust-lang.org/book/ch14-04-installing-binaries.html)
 
-Alternatively, you can clone the repository and build it manually.
+### Clone the repository and build
 
 ```sh
 git clone git@github.com:azishio/voxel-tiler-cli.git
